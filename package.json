@@ -12,7 +12,7 @@
     "lint": "eslint \"app/**/*.{ts,tsx,js,jsx}\" \"components/**/*.{ts,tsx,js,jsx}\" \"lib/**/*.{ts,tsx,js,jsx}\" \"actions/**/*.{ts,tsx,js,jsx}\" --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint \"app/**/*.{ts,tsx,js,jsx}\" \"components/**/*.{ts,tsx,js,jsx}\" \"lib/**/*.{ts,tsx,js,jsx}\" \"actions/**/*.{ts,tsx,js,jsx}\" --fix",
     "format": "prettier --write 'app/**/*.{js,jsx,ts,tsx,css,html}' 'components/**/*.{js,jsx,ts,tsx,css,html}' 'lib/**/*.{js,jsx,ts,tsx,css,html}' 'actions/**/*.{js,jsx,ts,tsx,css,html}'",
-    "prepare": "husky"
+    "prepare": "if [ \"$HUSKY\" != \"0\" ]; then husky install; fi"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.7.4",
