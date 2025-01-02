@@ -12,13 +12,14 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: development
-      DATABASE_URL: postgres://postgres:mypassword@localhost:5432/postgres
+      DATABASE_URL: postgres://postgres:mypassword@localhost:5434/postgres
     depends_on:
       - database
+    # command: sh -c "npm run migrate && npm run migrate && npm run dev"
 
   database:
     image: postgres:15
-    container_name: projDB
+    container_name: nextCont
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: mypassword

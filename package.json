@@ -12,7 +12,7 @@
     "lint": "eslint \"app/**/*.{ts,tsx,js,jsx}\" \"components/**/*.{ts,tsx,js,jsx}\" \"lib/**/*.{ts,tsx,js,jsx}\" \"actions/**/*.{ts,tsx,js,jsx}\" --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint \"app/**/*.{ts,tsx,js,jsx}\" \"components/**/*.{ts,tsx,js,jsx}\" \"lib/**/*.{ts,tsx,js,jsx}\" \"actions/**/*.{ts,tsx,js,jsx}\" --fix",
     "format": "prettier --write 'app/**/*.{js,jsx,ts,tsx,css,html}' 'components/**/*.{js,jsx,ts,tsx,css,html}' 'lib/**/*.{js,jsx,ts,tsx,css,html}' 'actions/**/*.{js,jsx,ts,tsx,css,html}'",
-    "prepare": "if [ \"$HUSKY\" != \"0\" ]; then husky install; fi"
+    "prepare": "husky"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.7.4",
@@ -22,6 +22,7 @@
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.2",
     "drizzle-zod": "^0.6.0",
+    "husky": "^9.1.7",
     "lucide-react": "^0.469.0",
     "next": "15.1.2",
     "next-auth": "^5.0.0-beta.25",
