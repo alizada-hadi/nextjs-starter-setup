@@ -12,10 +12,10 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: development
-      DATABASE_URL: postgres://postgres:mypassword@localhost:5434/postgres
+      DATABASE_URL: postgres://postgres:mypassword@database:5432/postgres
     depends_on:
       - database
-    # command: sh -c "npm run migrate && npm run migrate && npm run dev"
+    command: sh -c "npm run migrate && npm run dev"
 
   database:
     image: postgres:15

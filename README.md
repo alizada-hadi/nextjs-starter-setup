@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Starter with favorite tech stacks
+
+If you’re tired of repeatedly setting up projects with various tech stacks but don’t have the time to do it manually every time, this repository is here to help. With just one single command, you can spin up a fully configured development environment for your Next.js project
+
+This repository provides a ready-to-use setup for starting a Next.js project with PostgreSQL and Docker. It simplifies the development process by including pre-configured Docker containers for the application and database, along with other essential tools.
+
+## Tech Stack
+
+- **Next.js**
+- **Tailwind CSS**
+- **Shadcn UI**
+- **PostgreSQL**: Relational database for data storage.
+- **Drizzle ORM**: For managing database migrations and schema.
+- **Docker**: Containerized environment for consistent development.
+- **authJS (next-auth v5)**: The nextjs package for managing the authentication and authorization in your project`(optional)`.
+- **Linting Setup**: Pre-configured tools like ESLint and Prettier for consistent code style and quality.
+- **Commit Message Checks**: Ensure commit messages follow a defined format (e.g., Conventional Commits) to maintain a clean Git history.
+
+
+---
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- [Docker Desktop](https://www.docker.com/)
+- [Node.js](https://nodejs.org/) (for local development outside Docker)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/alizada-hadi/nextjs-starter-setup.git your-project-name
+cd your-project-name
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Start development using Docker
+```
+docker compose up --build -d
+```
+This command will
+#### 1. Install the required dependencies.
+#### 2. Spin up a PostgreSQL database instance locally.
+#### 3. Generate the schema (e.g., users table).
+#### 4. Apply database migrations.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+After the setup is complete, your development environment will be available at http://localhost:3000.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Workflow for Schema Changes
+If you make changes to your database schemas (models) and need to regenerate them:
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Restart the Docker containers:
+```bash
+docker compose down
+docker compose up -d
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+###	2.	Or manually generate and migrate the schema (without restarting the containers):
+```bash
+npm run generate
+npm run migrate
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
+## Access Drizzle Studio
+To visually explore your database schema, you can access the Drizzle Studio by running:
+```bash
+npm run studio
+```
 
-## Deploy on Vercel
+---
+## Contributing
+Feel free to fork this repository, create issues, or submit pull requests to improve the setup and functionality.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Please don't forget to give it a star ⭐
